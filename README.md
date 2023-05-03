@@ -49,7 +49,21 @@
       <img alt="home page" width="80%" src="https://user-images.githubusercontent.com/69804999/236043081-2e4d13de-ce4f-4b74-aaea-26f87c0e2c6e.png"/>
     </p>
   </li>
-
+  <li>Start taking note of your exercise
+    <p align="center" width="100%">
+      <img alt="Exercise note taking" width="80%" src="https://user-images.githubusercontent.com/69804999/236045706-279e7923-6e3b-439d-942f-8e4bdd3cf7d7.png"/>
+    </p>
+  </li>
+  <li>And keep track of your nutrition
+      <p align="center" width="100%">
+        <img alt="Nutrition note taking" width="80%" src="https://user-images.githubusercontent.com/69804999/236045968-c118e6d3-37c0-4227-97a5-2f24fe97aa4d.png"/>
+      </p>
+  </li>
+  <li>Calculate your BFP
+    <p align="center" width="100%">
+      <img alt="BFP Calculator" width="80%" src="https://user-images.githubusercontent.com/69804999/236046440-f8b1568c-0953-4ed3-b582-1d40a070149d.png"/>
+    </p>
+  </li>
 </ol>
 
 
