@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+body {
+  background: url("images/fitness_1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+}
+
+/* ======== NAV ======== */
+
+.nav {
+  margin: 0 auto;
+  justify-content: space-evenly;
+}
+
+.navbar {
+  border-radius: 5px;
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.0);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+#brand {
+  padding: 0 20px;
+  text-align: center;
+}
+
+a:link,
+a:visited {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+
+.nav_btn:hover {
+  padding: 0.6em 2em;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+
+.nav_btn:hover:before {
+  content: "";
+  background: linear-gradient(45deg,
+      rgb(0, 0, 0),
+      white);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: nav_btnani 20s linear infinite;
+  transition: opacity 0.7s ease-in-out;
+  border-radius: 10px;
+}
+
+.nav_btn:hover:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes nav_btnani {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+
+/* ======== FLASH MSG ======== */
+.flash_msg {
+  color: white;
+  text-shadow: 1px 1px 2px black;
+  margin-top: 5%;
+  text-align: center;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/*  ======== CONTAINER ======== */
+.container {
+  margin: 5% auto;
+  display: flex;
+  gap: 1%;
+
+}
+
+/* ======== NEWS ======== */
+.news {
+  flex: 1;
+}
+
+
+/* ======== CONTENT ======== */
+.content {
+  flex: 3;
+}
+
+/*  ======== HEADER ======== */
+
+.news,
+.content,
+.music {
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.0);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 5%;
+  text-align: center;
+}
+
+#title {
+  margin-bottom: 5%;
+}
+
+/* ======== MUSIC ======== */
+.music {
+  flex: 1;
+}

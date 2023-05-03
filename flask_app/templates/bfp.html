@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BFP Calculator</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='bfp.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="nav">
+    <div class="navbar">
+      <h1 id="brand">GymBud</h1>
+    </div>
+    <div class="navbar">
+      <a href="/home" class="btn">Home</a>
+      <a href="/exercise/{{user.id}}" class="btn">Exercise note</a>
+      <a href="/food/{{user.id}}" class="btn">Food note</a>
+      <a href="/bfp/{{user.id}}" class="btn">BFP calculator</a>
+      <a href="/calendar/{{user.id}}" class="btn">Calendar</a>
+    </div>
+    <div class="navbar">
+      <a href="/profile/{{user.id}}" id="profile">
+        <p id="name"> Hello {{user.first_name}}</p>
+        {% if image %}
+        <img id="avatar" src="{{url_for('static', filename='img/' + image.filename)}}" alt="Profile picture">
+
+        {% else %}
+
+        {% endif %}
+      </a>
+    </div>
+    <div class="navbar">
+      <a href="/logout" class="btn">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Calculate your BFP:</h1>
+    <div class="flash_msg">
+      {% for message in get_flashed_messages() %}
+      <p>{{message}}</p>
+      {% endfor %}
+    </div>
+    <div class="content">
+      <div class="bodyfat_chart">
+        <h5>Body Fat Percentage Categories</h5>
+        <table class="table" id="table1">
+          <thead>The American Council on Exercise Body Fat Categorization</thead>
+          <thead>
+            <tr>
+              <th scope="col">Description</th>
+              <th scope="col">Women</th>
+              <th scope="col">Men</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Essential fat</td>
+              <td>10-13%</td>
+              <td>2-5%</td>
+            </tr>
+            <tr>
+              <td>Athletes</td>
+              <td>14-20%</td>
+              <td>6-13%</td>
+            </tr>
+            <tr>
+              <td>Fitness</td>
+              <td>21-24%</td>
+              <td>14-17%</td>
+            </tr>
+            <tr>
+              <td>Average</td>
+              <td>25-31%</td>
+              <td>18-24%</td>
+            </tr>
+            <tr>
+              <td>Obese</td>
+              <td>32+%</td>
+              <td>25+%</td>
+            </tr>
+          </tbody>
+        </table>
+        <table class="table" id="table2">
+          <thead>Jackson & Pollard Ideal Body Fat Percentages</thead>
+          <thead>
+            <tr>
+              <th scope="col">Age</th>
+              <th scope="col">Women</th>
+              <th scope="col">Men</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>20</td>
+              <td>17.7%</td>
+              <td>8.5%</td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td>18.4%</td>
+              <td>10.5%</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>19.3%</td>
+              <td>12.7%</td>
+            </tr>
+            <tr>
+              <td>35</td>
+              <td>21.5%</td>
+              <td>13.7%</td>
+            </tr>
+            <tr>
+              <td>40</td>
+              <td>22.2%</td>
+              <td>15.3%</td>
+            </tr>
+            <tr>
+              <td>45</td>
+              <td>22.9%</td>
+              <td>16.4%</td>
+            </tr>
+            <tr>
+              <td>50</td>
+              <td>25.2%</td>
+              <td>18.9%</td>
+            </tr>
+            <tr>
+              <td>55</td>
+              <td>26.3%</td>
+              <td>20.9%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="bfp">
+        <form method="post" id="myForm">
+          <input type="hidden" id="user_id" value="{{user.id}}">
+          <div class="input-group mb-3 input">
+            <span class="input-group-text input">Weight (kg):</span>
+            <input id="weight" name="weight" type="number" step="any" class="form-control input">
+          </div>
+          <div class="input-group mb-3 input">
+            <span class="input-group-text input">Height (cm):</span>
+            <input id="height" name="height" type="number" step="any" class="form-control input">
+          </div>
+          <div class="input-group mb-3 input">
+            <span class="input-group-text input">Age:</span>
+            <input id="age" name="age" type="number" class="form-control input">
+          </div>
+          <div id="gender">
+            <p>Gender:</p>
+            <div>
+              <input name="gender" value='male' type="radio" class="form-check-input">
+              <label for="gender" class="form-check-label">Male</label>
+            </div>
+            <div>
+              <input name="gender" value='female' type="radio" class="form-check-input">
+              <label for="gender" class="form-check-label">Female</label>
+            </div>
+          </div>
+          <button type="submit" class="btn" id="save_btn">Calculate</button>
+        </form>
+      </div>
+      <div class="display">
+        <p>Date: {{formatted_date}}</p>
+        <br>
+        <p>Target Body Fat Percentage (BFP): 12%</p>
+        <div id="bfp_results"></div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/bfp.js') }}"></script>
+</body>
+
+</html>

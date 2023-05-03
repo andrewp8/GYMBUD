@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='food.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="nav">
+    <div class="navbar">
+      <h1 id="brand">GymBud</h1>
+    </div>
+    <div class="navbar">
+      <a href="/home" class="btn">Home</a>
+      <a href="/exercise/{{user.id}}" class="btn">Exercise note</a>
+      <a href="/food/{{user.id}}" class="btn">Food note</a>
+      <a href="/bfp/{{user.id}}" class="btn">BFP calculator</a>
+      <a href="/calendar/{{user.id}}" class="btn">Calendar</a>
+    </div>
+    <div class="navbar">
+      <a href="/profile/{{user.id}}" id="profile">
+        <p id="name"> Hello {{user.first_name}}</p>
+        {% if image %}
+        <img id="avatar" src="{{url_for('static', filename='img/' + image.filename)}}" alt="Profile picture">
+
+        {% else %}
+
+        {% endif %}
+      </a>
+    </div>
+    <div class="navbar">
+      <a href="/logout" class="btn">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <h1>Note today's food:</h1>
+    <div class="flash_msg">
+      {% for message in get_flashed_messages() %}
+      <p>{{message}}</p>
+      {% endfor %}
+    </div>
+    <div class="content">
+      <div class="food">
+        <form action="/food/{{user.id}}" method="post">
+          <div class="input-group mb-3 input">
+            <span class=" input-group-text input">Meal type:</span>
+            <input name="meal_type" type="text" class="form-control input" placeholder="breakfast">
+          </div>
+          <div class="input-group mb-3 input">
+            <span class="input-group-text input">Meal's name:</span>
+            <input name="meal_name" type="text" class="form-control input">
+          </div>
+          <div class="input-group mb-3 input">
+            <span class="input-group-text input">Calories per serving:</span>
+            <input name="calories" type="number" class="form-control input">
+          </div>
+          <div class="input-group mb-3 input">
+            <span class="input-group-text input">Protein per serving:</span>
+            <input name="protein" type="number" class="form-control input">
+          </div>
+          <button type="submit" class="btn" id="save_btn">Save</button>
+        </form>
+      </div>
+      <div class="display">
+        <table class="table">
+          {% if foods|length < 1: %} <thead>Date: {{formatted_date}}</thead>
+            {% else: %}
+            <thead>Date: {{foods[0].created_at.strftime("%Y-%m-%d")}}</thead>
+            <tr>
+              <th>Target calories per day</th>
+              <th>Target protein per day</th>
+            </tr>
+            <tr>
+              <th>2500 cal</th>
+              <th>200 g</th>
+            </tr>
+            <tbody>
+              <tr>
+                <td>Today's total calories intake:</td>
+                <td>
+                  Today's total protein intake:
+                </td>
+              </tr>
+              <tr>
+                <td>{{calculates['SUM(calories)']}} cal </td>
+                <td>{{calculates['SUM(protein)']}} g </td>
+              </tr>
+            </tbody>
+            {% endif %}
+        </table>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

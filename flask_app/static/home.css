@@ -1,0 +1,262 @@
+/* 
+Glowing text effect is copied from 
+https://codepen.io/kasemalolo/pen/abGbRBR
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+body {
+  background: url("images/fitness_1.jpg") no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+}
+
+/* ======== NAV ======== */
+
+.nav {
+  margin: 0 auto;
+  justify-content: space-evenly;
+}
+
+.navbar,
+.save_btn {
+  border-radius: 5px;
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.0);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.save_btn {
+  color: white !important;
+}
+
+#brand {
+  padding: 0 20px;
+  text-align: center;
+}
+
+a:link,
+a:visited {
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+}
+
+
+.btn:hover,
+.btn:active {
+  /* padding: 0.6em 2em; */
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+
+.btn:hover:before,
+.btn:active:before {
+  content: "";
+  background: linear-gradient(45deg,
+      rgb(0, 0, 0),
+      white);
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: btnani 20s linear infinite;
+  transition: opacity 0.7s ease-in-out;
+  border-radius: 25px;
+}
+
+.btn:hover:after,
+.btn:active:after {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #222;
+  left: 0;
+  top: 0;
+  border-radius: 25px;
+}
+
+@keyframes btnani {
+  0% {
+    background-position: 0 0;
+  }
+
+  50% {
+    background-position: 400% 0;
+  }
+
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* ======== PROFILE ======== */
+#profile {
+  display: flex;
+  gap: 10px;
+  align-items: end;
+  justify-content: center;
+}
+
+/* ==== NAME ==== */
+#name {
+  text-transform: capitalize;
+  font-weight: bolder;
+  animation: name_animate 5s linear infinite;
+}
+
+@keyframes name_animate {
+
+  0%,
+  18%,
+  20%,
+  50.1%,
+  60%,
+  65.1%,
+  80%,
+  90.1%,
+  92% {
+
+    color: #0e3742;
+
+    text-shadow: none;
+
+  }
+
+  18.1%,
+  20.1%,
+  30%,
+  50%,
+  60.1%,
+  65%,
+  80.1%,
+  90%,
+  92.1%,
+  100% {
+
+    color: #fff;
+
+    text-shadow: 0 0 10px #03bcf4,
+
+      0 0 20px #03bcf4,
+
+      0 0 40px #03bcf4,
+
+      0 0 80px #03bcf4,
+
+      0 0 160px #03bcf4;
+
+  }
+
+}
+
+/* ======== AVATAR ======== */
+#avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+/*  ======== CONTAINER ======== */
+.container {
+  margin: 5% auto;
+  display: flex;
+  gap: 1%;
+
+}
+
+/* ======== RECIPES ======== */
+.recipes {
+  flex: 1;
+}
+
+.input {
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.0) !important;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125) !important;
+  color: white !important;
+}
+
+#recipes_title {
+  padding-bottom: 10%;
+}
+
+/* ======== CONTENT ======== */
+.content {
+  flex: 3;
+}
+
+/*  ======== HEADER ======== */
+
+.recipes,
+.content,
+.video {
+  backdrop-filter: blur(18px) saturate(180%);
+  -webkit-backdrop-filter: blur(18px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.0);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  padding: 5%;
+  text-align: center;
+}
+
+#title {
+  margin-bottom: 5%;
+}
+
+
+/* ======== IMAGES ======== */
+.images {
+  margin-top: 5%;
+}
+
+.images_btn {
+  display: flex;
+  gap: 50px;
+}
+
+img {
+  width: 250px;
+  height: 250px;
+  border-radius: 25px;
+  /* background: linear-gradient(145deg, #FFFFFF, #C4C6C9);
+  border-radius: 15%;
+  box-shadow: 9.91px 9.91px 15px #D9DADE, -9.91px -9.91px 15px #FFFFFF; */
+}
+
+
+.recipe_img {
+  width: 150px;
+  height: 150px;
+  border-radius: 25px;
+}
+
+/* ======== VIDEO ======== */
+.VIDEO {
+  flex: 1;
+}

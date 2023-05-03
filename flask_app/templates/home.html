@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='home.css') }}">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="nav">
+    <div class="navbar">
+      <h1 id="brand">GymBud</h1>
+    </div>
+    <div class="navbar">
+      <a href="/home" class="btn">Home</a>
+      <a href="/exercise/{{user.id}}" class="btn">Exercise note</a>
+      <a href="/food/{{user.id}}" class="btn">Food note</a>
+      <a href="/bfp/{{user.id}}" class="btn">BFP calculator</a>
+      <a href="/calendar/{{user.id}}" class="btn">Calendar</a>
+    </div>
+    <div class="navbar">
+      <a href="/profile/{{user.id}}" id="profile">
+        <p id="name"> Hello {{user.first_name}}</p>
+        {% if image %}
+        <img id="avatar" src="{{url_for('static', filename='img/' + image.filename)}}" alt="Profile picture">
+
+        {% else %}
+
+        {% endif %}
+      </a>
+    </div>
+    <div class="navbar">
+      <a href="/logout" class="btn">Logout</a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="recipes">
+      <h3 id="recipes_title">RECIPES SEARCH:</h3>
+      <input type="text" class="form-control input" id="recipe_input">
+      <a class="btn"><button type="submit" id="recipe_input_btn" class="save_btn">Search</button></a>
+      <div id="recipe_display"></div>
+
+    </div>
+
+    <div class="content">
+      <div class="header">
+        <h2 id="title">Track Your Progress and Reach Your Fitness Goals</h2>
+        <p>Welcome to our gym note-taking app! With this app, you can easily record your workouts, track your progress,
+          and set goals for yourself. Stay motivated and organized with our user-friendly interface, and never forget a
+          workout again.</p>
+      </div>
+      <div class="images">
+        <h3>Let the journey begin!</h3>
+        <div class="images_btn">
+          <a href="/exercise/{{user.id}}" class="btn">
+            <p>Exercise Notepad</p>
+            <img src="static/images/this_exercise.png" alt="exercise big button">
+          </a>
+          <a href="/food/{{user.id}}" class="btn">
+            <p>Food Notepad</p>
+            <img src="static/images/this_food.png" alt="food big button">
+
+          </a>
+          <a href="/bfp/{{user.id}}" class="btn">
+            <p>BFP calculator</p>
+            <img src="static/images/this_bfp.png" alt="bfp big button">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="video">
+      <h3>VIDEO SEARCH:</h3>
+      <input type="text" class="form-control input" id="video_input">
+      <a class="btn"><button type="submit" id="video_input_btn" class="save_btn">Search</button></a>
+      <div id="video_display"></div>
+    </div>
+
+  </div>
+
+  <script type="text/javascript" src="{{ url_for('static', filename='js/home.js') }}"></script>
+</body>
+
+</html>
