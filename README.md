@@ -46,7 +46,7 @@
   </li>
   <li>If necessary, resources on healthy bodybuilding diets and daily exercise videos are available for reference  
     <p align="center" width="100%">
-      <img alt="home page" width="80%" src="[https://user-images.githubusercontent.com/69804999/236039941-1c9a79d5-af0b-4adf-8426-978856de5756.png](https://user-images.githubusercontent.com/69804999/236043081-2e4d13de-ce4f-4b74-aaea-26f87c0e2c6e.png)"/>
+      <img alt="home page" width="80%" src="https://user-images.githubusercontent.com/69804999/236043081-2e4d13de-ce4f-4b74-aaea-26f87c0e2c6e.png"/>
     </p>
   </li>
 
