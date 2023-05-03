@@ -1,4 +1,6 @@
-# Coding_Dojo_Python_project_GYMBUD
+#GYMBUD
+
+## About:
 
 ### Built using Python, Flask, MySQL, Jinja, HTML, CSS
 
@@ -21,26 +23,32 @@
 ### Security and validation: 
 - Implemented security measures such as password hashing using bcrypt and email validation using Python’s class method to ensure user privacy, protection, and validation for registration and logging-in
 - User can also add, update their profile picture and profile’s information.
-### Installation:
-<ol>
-<li> Navigate to your project folder</li>
-<li> Open terminal from the folder and run:
-<ul>
-<li><code>pip install pipenv</code></li>
-<li><code>pipenv install flask pymysql flask-bcrypt</code></li>
-<li><code>pipenv shell</code></li>
-<li><code>python3 server.py</code></li>
-</ul>
-</li>
-</ol>
-### Usage:
-<ol>
-<li>Create an account
-<p align="center" width="100%">
-<img alt="log-in and register" width="80%" src="https://user-images.githubusercontent.com/69804999/236039941-1c9a79d5-af0b-4adf-8426-978856de5756.png"/>
-</p>
-</li>
 
+## Installation:
+<ol>
+  <li> Navigate to your project folder</li>
+  <li> Open terminal from the folder and run:
+    <ul>
+      <li><code>pip install pipenv</code></li>
+      <li><code>pipenv install flask pymysql flask-bcrypt</code></li>
+      <li><code>pipenv shell</code></li>
+      <li><code>python3 server.py</code></li>
+    </ul>
+  </li>
+</ol>
+
+## Usage:
+<ol>
+  <li>Create an account
+    <p align="center" width="100%">
+      <img alt="log-in and register" width="80%" src="https://user-images.githubusercontent.com/69804999/236039941-1c9a79d5-af0b-4adf-8426-978856de5756.png"/>
+    </p>
+  </li>
+  <li>If necessary, resources on healthy bodybuilding diets and daily exercise videos are available for reference  
+    <p align="center" width="100%">
+      <img alt="home page" width="80%" src="[https://user-images.githubusercontent.com/69804999/236039941-1c9a79d5-af0b-4adf-8426-978856de5756.png](https://user-images.githubusercontent.com/69804999/236043081-2e4d13de-ce4f-4b74-aaea-26f87c0e2c6e.png)"/>
+    </p>
+  </li>
 
 </ol>
 
