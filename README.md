@@ -37,7 +37,7 @@
 <ol>
 <li>Create an account
 <p align="center" width="100%">
-<img alt="my emoji gif" width="80%" src=="https://user-images.githubusercontent.com/69804999/236039941-1c9a79d5-af0b-4adf-8426-978856de5756.png"/>
+<img alt="log-in and register" width="80%" src="https://user-images.githubusercontent.com/69804999/236039941-1c9a79d5-af0b-4adf-8426-978856de5756.png"/>
 </p>
 </li>
 
