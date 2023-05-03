@@ -26,10 +26,10 @@
 <li> Navigate to your project folder</li>
 <li> Open terminal from the folder and run:
 <ul>
-<li>`pip install pipenv`</li>
-<li>`pipenv install flask pymysql flask-bcrypt`</li>
-<li>`pipenv shell`</li>
-<li>`python3 server.py`</li>
+<li><code>pip install pipenv</code></li>
+<li><code>pipenv install flask pymysql flask-bcrypt</code></li>
+<li><code>pipenv shell</code></li>
+<li><code>python3 server.py</code></li>
 </ul>
 </li>
 </ol>
@@ -37,7 +37,7 @@
 <ol>
 <li>Create an account
 <p align="center" width="100%">
-![Screenshot 2023-05-03 151728](https://user-images.githubusercontent.com/69804999/236039941-1c9a79d5-af0b-4adf-8426-978856de5756.png)
+<img alt="my emoji gif" width="80%" src=="https://user-images.githubusercontent.com/69804999/236039941-1c9a79d5-af0b-4adf-8426-978856de5756.png"/>
 </p>
 </li>
 
